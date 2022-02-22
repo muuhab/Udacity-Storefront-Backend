@@ -11,17 +11,28 @@ These are the notes from a meeting with the frontend developer that describe wha
 - Index: '/products' [GET]
 - Show: '/products/:id' [GET]
 - Create [token required]: '/products' [POST]
-- [OPTIONAL] Top 5 most popular products
-- [OPTIONAL] Products by category (args: product category)
+- Update [token required]: '/products/:id'' [PUT]
+- Delete [token required]: '/products/:id'' [DELETE]
+- [OPTIONAL] Top 5 most popular products '/top/products' [GET]
+- [OPTIONAL] Products by category (args: product category) '/products/category/:category' [GET]
 
 #### Users
 
 - Index [token required]: '/users' [GET]
 - Show [token required]: '/users/:id' [GET]
-- Create N[token required]: '/users' [POST]
+- Create N[token required]: "/users" [POST]
+- Delete [token required]: "/users/:id" [DELETE]
+- Update [token required]: "/users/:id" [PUT]
+- Authenticate "/users/auth" [POST]
 
 #### Orders
 
+- Index [token required]: '/orders' [GET]
+- Show [token required]: "/orders/:id" [GET]
+- Create N[token required]: "/orders" [POST]
+- Create N[token required] in order_products: "/orders/:id" [POST]
+- Delete [token required]: "/orders/:id" [DELETE]
+- Update [token required]: "/orders/:id" [PUT]
 - Current Order by user (args: user id)[token required]: '/users/:id/orders/completed' [GET]
 - [OPTIONAL] Completed Orders by user (args: user id)[token required]: /users/:id/orders/ [Get]
 
