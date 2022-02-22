@@ -5,17 +5,32 @@ import { verifyAuthToken } from "../services/auth";
 const store = new OrderStore();
 
 const index = async (req: Request, res: Response) => {
-  const orders = await store.index();
-  res.json(orders);
+  try {
+    const orders = await store.index();
+    res.json(orders);
+  } catch (error) {
+    res.status(404);
+    res.json(error);
+  }
 };
 const show = async (req: Request, res: Response) => {
-  const orders = await store.show(req.params.id);
-  res.json(orders);
+  try {
+    const orders = await store.show(req.params.id);
+    res.json(orders);
+  } catch (error) {
+    res.status(404);
+    res.json(error);
+  }
 };
 
 const currentOrders = async (req: Request, res: Response) => {
-  const orders = await store.currentOrders(req.params.id);
-  res.json(orders);
+  try {
+    const orders = await store.currentOrders(req.params.id);
+    res.json(orders);
+  } catch (error) {
+    res.status(404);
+    res.json(error);
+  }
 };
 
 const create = async (req: Request, res: Response) => {
@@ -56,8 +71,13 @@ const remove = async (req: Request, res: Response) => {
 };
 
 const getCompletedOrders = async (_req: Request, res: Response) => {
-  const orders = await store.getCompletedOrders(_req.params.id);
-  res.json(orders);
+  try {
+    const orders = await store.getCompletedOrders(_req.params.id);
+    res.json(orders);
+  } catch (error) {
+    res.status(404);
+    res.json(error);
+  }
 };
 
 const addProduct = async (_req: Request, res: Response) => {

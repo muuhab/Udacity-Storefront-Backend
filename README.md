@@ -49,3 +49,11 @@ npm run watch
 # or
 yarn watch
 ```
+
+Testing the project
+
+```bash
+npm run test
+# or
+yarn test
+```
