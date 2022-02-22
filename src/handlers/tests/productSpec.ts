@@ -10,8 +10,7 @@ const store = new ProductStore();
 const userStore = new UserStore();
 const orderStore = new OrderStore();
 
-let token =
-  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.YXhIqeGNYYnHCpEex74ZA_TsRkhLrGMYGHxS9glzDAM";
+const token = process.env.TOKEN_TEST;
 
 describe("Test Products endpoint responses", () => {
   const user = {

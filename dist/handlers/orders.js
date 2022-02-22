@@ -5,16 +5,34 @@ const order_1 = require("../models/order");
 const auth_1 = require("../services/auth");
 const store = new order_1.OrderStore();
 const index = async (req, res) => {
-    const orders = await store.index();
-    res.json(orders);
+    try {
+        const orders = await store.index();
+        res.json(orders);
+    }
+    catch (error) {
+        res.status(404);
+        res.json(error);
+    }
 };
 const show = async (req, res) => {
-    const orders = await store.show(req.params.id);
-    res.json(orders);
+    try {
+        const orders = await store.show(req.params.id);
+        res.json(orders);
+    }
+    catch (error) {
+        res.status(404);
+        res.json(error);
+    }
 };
 const currentOrders = async (req, res) => {
-    const orders = await store.currentOrders(req.params.id);
-    res.json(orders);
+    try {
+        const orders = await store.currentOrders(req.params.id);
+        res.json(orders);
+    }
+    catch (error) {
+        res.status(404);
+        res.json(error);
+    }
 };
 const create = async (req, res) => {
     const order = {
@@ -55,8 +73,14 @@ const remove = async (req, res) => {
     }
 };
 const getCompletedOrders = async (_req, res) => {
-    const orders = await store.getCompletedOrders(_req.params.id);
-    res.json(orders);
+    try {
+        const orders = await store.getCompletedOrders(_req.params.id);
+        res.json(orders);
+    }
+    catch (error) {
+        res.status(404);
+        res.json(error);
+    }
 };
 const addProduct = async (_req, res) => {
     const orderId = _req.params.id;

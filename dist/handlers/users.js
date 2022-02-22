@@ -9,12 +9,24 @@ const jsonwebtoken_1 = __importDefault(require("jsonwebtoken"));
 const auth_1 = require("../services/auth");
 const store = new user_1.UserStore();
 const index = async (_req, res) => {
-    const users = await store.index();
-    res.json(users);
+    try {
+        const users = await store.index();
+        res.json(users);
+    }
+    catch (error) {
+        res.status(404);
+        res.json(error);
+    }
 };
 const show = async (req, res) => {
-    const user = await store.show(req.params.id);
-    res.json(user);
+    try {
+        const user = await store.show(req.params.id);
+        res.json(user);
+    }
+    catch (error) {
+        res.status(404);
+        res.json(error);
+    }
 };
 const create = async (req, res) => {
     const user = {

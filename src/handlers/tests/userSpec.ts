@@ -5,8 +5,8 @@ import db from "../../database";
 
 const request = supertest(app);
 const store = new UserStore();
-let token =
-  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.YXhIqeGNYYnHCpEex74ZA_TsRkhLrGMYGHxS9glzDAM";
+
+const token = process.env.TOKEN_TEST;
 
 describe("Test User endpoint responses", () => {
   const user = {
