@@ -5,8 +5,10 @@
   "main": "server.ts",
   "scripts": {
     "start": "nodemon src/server.ts",
-    "watch": "tsc-watch --esModuleInterop src/server.ts --outDir ./dist --onSuccess 'node ./dist/server.js'",
-    "test": "jasmine-ts"
+    "build": "tsc",
+    "test": "set ENV=test && db-migrate up --env test && tsc && jasmine-ts && db-migrate down",
+    "watch": "tsc-watch --esModuleInterop src/server.ts --outDir ./dist --onSuccess \"node ./dist/server.js\"",
+    "jas": "jasmine-ts"
   },
   "author": "Udacity",
   "license": "ISC",
@@ -19,19 +21,21 @@
     "db-migrate-pg": "^1.2.2",
     "dotenv": "^11.0.0",
     "express": "^4.17.1",
+    "jasmine-spec-reporter": "^7.0.0",
     "jsonwebtoken": "^8.5.1",
     "pg": "^8.5.1",
+    "supertest": "^6.2.2",
     "typescript": "^4.1.3"
   },
   "devDependencies": {
     "@types/bcrypt": "^5.0.0",
-    "@types/jasmine": "^3.6.3",
+    "@types/jasmine": "^3.10.3",
     "@types/jsonwebtoken": "^8.5.6",
+    "@types/supertest": "^2.0.11",
     "jasmine": "^3.6.4",
-    "jasmine-spec-reporter": "^6.0.0",
     "jasmine-ts": "^0.3.0",
     "nodemon": "^2.0.15",
-    "ts-node": "^9.1.1",
+    "ts-node": "^10.5.0",
     "tsc-watch": "^4.2.9"
   }
 }
